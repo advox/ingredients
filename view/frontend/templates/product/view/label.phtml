@@ -1,0 +1,16 @@
+<?php /** @var \Powerbody\Ingredients\Block\Product\View\Label $this */ ?>
+<?php
+/** @var \Powerbody\Ingredients\Model\Ingredient\Label $label */
+$label = $this->getLabel();
+?>
+<div id="ingredients_label">
+    <div class="message-warning warning message"
+        <?php echo (null !== $label) ? 'style="display:none"' : ''; ?>>
+        <div><?php echo __('Label is not available.'); ?></div>
+    </div>
+
+    <img src="<?php echo (null !== $label) ? $this->getLabelService()->getUrl($label) : ''; ?>"
+         alt="<?php echo __('Label'); ?>"
+         class="label_image"
+        <?php echo (null === $label) ? 'style="display:none"' : ''; ?>/>
+</div>

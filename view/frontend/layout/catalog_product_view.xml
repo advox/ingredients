@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="itemtype" value="http://schema.org/Product"/>
+        <referenceBlock name="product.info.details">
+            <block class="Powerbody\Ingredients\Block\Product\View\Label" name="product.info.label" template="product/view/label.phtml" group="detailed_info" before="product.attributes">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getLabel</argument>
+                    <argument name="at_code" xsi:type="string">label</argument>
+                    <argument name="css_class" xsi:type="string">label</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="title" translate="true" xsi:type="string">Nutrition Facts</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
+        <plugin disabled="false" name="Powerbody_Ingredients_Plugin_Block_ConfigurableProduct" sortOrder="10" type="Powerbody\Ingredients\Plugin\Block\ConfigurableProduct"/>
+    </type>
+
+    <preference for="Powerbody\Ingredients\Service\ImageInterface" type="Powerbody\Ingredients\Service\Image"/>
+    <preference for="Powerbody\Ingredients\Service\Ingredient\LabelInterface" type="Powerbody\Ingredients\Service\Ingredient\Label"/>
+    <preference for="Powerbody\Ingredients\Model\ResourceModel\Ingredient\LabelRepositoryInterface" type="Powerbody\Ingredients\Model\ResourceModel\Ingredient\LabelRepository"/>
+
+</config>

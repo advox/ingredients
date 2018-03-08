@@ -8,15 +8,12 @@ define([
         var reloadPriceWrapper = wrapper.wrap(reloadPrice, function(original) {
             var result = original();
 
-            if(this.simpleProduct && null !== this.options.spConfig.ingredientsLabels[this.simpleProduct])
-            {
+            if(this.simpleProduct && null !== this.options.spConfig.ingredientsLabels[this.simpleProduct]) {
                 $('#ingredients_label .label_image')
                     .attr('src', this.options.spConfig.ingredientsLabels[this.simpleProduct])
                     .show();
                 $('#ingredients_label .message').hide();
-            }
-            else
-            {
+            } else {
                 $('#ingredients_label .label_image').hide();
                 $('#ingredients_label .message').show();
             }

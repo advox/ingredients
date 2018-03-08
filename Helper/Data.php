@@ -6,6 +6,8 @@ namespace Powerbody\Ingredients\Helper;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
+    const REVIEWS_TAB = 'reviews.tab';
+    const PRODUCT_INFO_LABEL = 'product.info.label';
     
     const WATERMARK_DIR = 'ingredients/watermark/';
     
@@ -29,5 +31,21 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             . DIRECTORY_SEPARATOR
             . $this->getWatermarkPath($name);
     }
-    
+
+
+    public function reorderIngredientProductTab(array $detailedInfoGroup) : array
+    {
+        $elementsToSwitch = [
+            self::REVIEWS_TAB => self::PRODUCT_INFO_LABEL,
+            self::PRODUCT_INFO_LABEL => self::REVIEWS_TAB,
+        ];
+
+        foreach ($detailedInfoGroup as $i => $groupName) {
+            if (true === isset($elementsToSwitch[$groupName])) {
+                $detailedInfoGroup[$i] =  $elementsToSwitch[$groupName];
+            }
+        }
+
+        return $detailedInfoGroup;
+    }
 }

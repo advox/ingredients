@@ -3,7 +3,7 @@
     <body>
         <attribute name="itemtype" value="http://schema.org/Product"/>
         <referenceBlock name="product.info.details">
-            <block class="Powerbody\Ingredients\Block\Product\View\Label" name="product.info.label" template="product/view/label.phtml" group="detailed_info" before="product.attributes">
+            <block class="Powerbody\Ingredients\Block\Product\View\Label" name="product.info.label" template="product/view/label.phtml" group="detailed_info" after="product.info.description">
                 <arguments>
                     <argument name="at_call" xsi:type="string">getLabel</argument>
                     <argument name="at_code" xsi:type="string">label</argument>

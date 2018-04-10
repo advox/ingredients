@@ -48,11 +48,12 @@ class Image implements ImageInterface
         $tmpLabelPath = $this->downloadOriginalImage($labelData);
         
         $watermarkImageName = $this->configurationReader->getIngredientLabelWatermarkImage();
-        $watermarkImagePath = $this->ingredientsHelper->getWatermarkFullPath($watermarkImageName);
         
-        $this->generateImageWithWatermark($tmpLabelPath, $watermarkImagePath, $tmpLabelPath);
-        
-        $this->bindImageToLabel($label, $tmpLabelPath);
+        if (false === empty($watermarkImageName)) {
+            $watermarkImagePath = $this->ingredientsHelper->getWatermarkFullPath($watermarkImageName);
+            $this->generateImageWithWatermark($tmpLabelPath, $watermarkImagePath, $tmpLabelPath);
+            $this->bindImageToLabel($label, $tmpLabelPath);
+        }
         
     }
     

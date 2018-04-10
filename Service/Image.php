@@ -51,10 +51,12 @@ class Image implements ImageInterface
         
         if (false === empty($watermarkImageName)) {
             $watermarkImagePath = $this->ingredientsHelper->getWatermarkFullPath($watermarkImageName);
-            $this->generateImageWithWatermark($tmpLabelPath, $watermarkImagePath, $tmpLabelPath);
-            $this->bindImageToLabel($label, $tmpLabelPath);
+            
+            if (true === file_exists($watermarkImagePath)) {
+                $this->generateImageWithWatermark($tmpLabelPath, $watermarkImagePath, $tmpLabelPath);
+                $this->bindImageToLabel($label, $tmpLabelPath);
+            }
         }
-        
     }
     
     public function bindImageToLabel(\Powerbody\Ingredients\Model\Ingredient\Label $label, string $path)
